@@ -1,5 +1,5 @@
 ## Random Latin Quotes
-> A service to serve random Latin quotes
+> A service to serve random Latin quotes.
 
 ### Overview
 
