@@ -1,4 +1,4 @@
-use std::sync::{RwLock, RwLockReadGuard};
+use std::sync::{Arc, RwLock, RwLockReadGuard};
 
 use actix_web::{get, web, App, HttpServer, Responder};
 use rand::seq::SliceRandom;
@@ -16,7 +16,7 @@ struct Quotes {
 }
 
 struct AppState {
-    quotes: RwLock<Vec<Quote>>,
+    quotes: Arc<RwLock<Vec<Quote>>>,
 }
 
 #[get("/")]
@@ -47,7 +47,7 @@ async fn main() -> std::io::Result<()> {
     println!("Serving quotes at http://127.0.0.1:8080");
 
     let app_state: web::Data<AppState> = web::Data::new(AppState {
-        quotes: RwLock::new(quotes.quotes),
+        quotes: Arc::new(RwLock::new(quotes.quotes)),
     });
 
     HttpServer::new(move || App::new().app_data(app_state.clone()).service(random_quote))
