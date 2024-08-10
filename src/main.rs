@@ -1,4 +1,4 @@
-use std::sync::{Mutex, MutexGuard};
+use std::sync::{RwLock, RwLockReadGuard};
 
 use actix_web::{get, web, App, HttpServer, Responder};
 use rand::seq::SliceRandom;
@@ -16,12 +16,12 @@ struct Quotes {
 }
 
 struct AppState {
-    quotes: Mutex<Vec<Quote>>,
+    quotes: RwLock<Vec<Quote>>,
 }
 
 #[get("/")]
 async fn random_quote(data: web::Data<AppState>) -> impl Responder {
-    let quotes: MutexGuard<Vec<Quote>> = data.quotes.lock().unwrap();
+    let quotes: RwLockReadGuard<Vec<Quote>> = data.quotes.read().unwrap();
     let quote: Option<&Quote> = quotes.choose(&mut rand::thread_rng());
 
     match quote {
@@ -38,11 +38,12 @@ async fn random_quote(data: web::Data<AppState>) -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let quotes_file = std::fs::File::open("data/quotes.json").expect("file not found");
+    let quotes_file: std::fs::File =
+        std::fs::File::open("data/quotes.json").expect("file not found");
     let quotes: Quotes = serde_json::from_reader(quotes_file).expect("error while reading file");
 
-    let app_state = web::Data::new(AppState {
-        quotes: Mutex::new(quotes.quotes),
+    let app_state: web::Data<AppState> = web::Data::new(AppState {
+        quotes: RwLock::new(quotes.quotes),
     });
 
     HttpServer::new(move || App::new().app_data(app_state.clone()).service(random_quote))
