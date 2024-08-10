@@ -42,6 +42,10 @@ async fn main() -> std::io::Result<()> {
         std::fs::File::open("data/quotes.json").expect("file not found");
     let quotes: Quotes = serde_json::from_reader(quotes_file).expect("error while reading file");
 
+    let amount_of_quotes: usize = quotes.quotes.len();
+    println!("Amount of quotes: {}", amount_of_quotes);
+    println!("Serving quotes at http://127.0.0.1:8080");
+
     let app_state: web::Data<AppState> = web::Data::new(AppState {
         quotes: RwLock::new(quotes.quotes),
     });
