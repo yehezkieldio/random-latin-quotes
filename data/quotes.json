@@ -44,6 +44,31 @@
             "text": "Non Omnia Possumus Omnes",
             "translation": "We all cannot do everything",
             "author": "Virgil"
+        },
+        {
+            "text": "Timendi Causa Est Nescire",
+            "translation": "Ignorance is the cause of fear",
+            "author": "Seneca"
+        },
+        {
+            "text": "Ars Longa, Vita Brevis",
+            "translation": "Art is long, life is short",
+            "author": "Hippocrates"
+        },
+        {
+            "text": "In Vino Veritas",
+            "translation": "In wine, there is truth",
+            "author": "Pliny the Elder"
+        },
+        {
+            "text": "Exitus Acta Probat",
+            "translation": "The result justifies the deed",
+            "author": "Ovid"
+        },
+        {
+            "text": "Fiat Lux",
+            "translation": "Let there be light",
+            "author": "Genesis 1:3"
         }
     ]
 }
