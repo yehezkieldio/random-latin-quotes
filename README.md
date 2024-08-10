@@ -3,7 +3,7 @@
 
 ### Overview
 
-This is simple RESTful service that serves random Latin quotes. The quotes are stored in a json file and are served by a `actix-web` server, built with `Rust`.
+This is a simple RESTful service that serves random Latin quotes. The quotes are stored in a json file. The service is built with the `actix-web` framework and uses the `serde` library for serialization and deserialization of the quotes, and the `rand` library for random number generation to select a quote.
 
 **NOTE:** You may need nightly Rust to build this project, with the linker `mold` installed and the Cranelift codegen backend enabled. You can also disable or remove them in the `Cargo.toml` and `.cargo/config.toml` files.
 
