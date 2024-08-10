@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize)]
 struct Quote {
     text: String,
+    translation: Option<String>,
     author: String,
 }
 
@@ -28,10 +29,12 @@ async fn random_quote(data: web::Data<AppState>) -> impl Responder {
         Some(quote) => web::Json(Quote {
             text: quote.text.clone(),
             author: quote.author.clone(),
+            translation: quote.translation.clone(),
         }),
         None => web::Json(Quote {
             text: "No quotes available".to_string(),
             author: "System".to_string(),
+            translation: None,
         }),
     }
 }

@@ -2,34 +2,47 @@
     "quotes": [
         {
             "text": "Carpe diem",
+            "translation": "Seize the day",
             "author": "Horace"
         },
         {
             "text": "Veni, vidi, vici",
+            "translation": "I came, I saw, I conquered",
             "author": "Julius Caesar"
         },
         {
             "text": "Alea jacta est",
+            "translation": "The die is cast",
             "author": "Julius Caesar"
         },
         {
             "text": "Vulnerant omnes, ultima necat",
+            "translation": "They all wound, the last one kills",
             "author": "Unknown"
         },
         {
             "text": "Fiat justitia ruat caelum",
+            "translation": "Let justice be done though the heavens fall",
             "author": "Lucius Calpurnius Piso Caesoninus"
         },
         {
             "text": "Omnium Rerum Principia Parva Sunt",
+            "translation": "The beginnings of all things are small",
             "author": "Cicero"
         },
         {
             "text": "Male Parta Male Dilabuntur",
+            "translation": "What has been wrongly gained is wrongly lost",
             "author": "Cicero"
         },
         {
             "text": "Amor Vincit Omnia",
+            "translation": "Love conquers all",
+            "author": "Virgil"
+        },
+        {
+            "text": "Non Omnia Possumus Omnes",
+            "translation": "We all cannot do everything",
             "author": "Virgil"
         }
     ]
